@@ -32,3 +32,13 @@ Feature: To Do list management
         Given the to-do list contains tasks that needs editing
         When the user edits the task in the to-do list
         Then the task should be edited
+
+    Scenario: Show only uncompleted tasks
+        Given the to-do list contains all tasks
+            | Task          | Status    | 
+            | Buy groceries | Pending   |
+            | Pay bills     | Completed |
+        When the user chooses to view only uncompleted tasks
+        Then the output shows uncompleted tasks
+
+
