@@ -5,14 +5,14 @@ from task import Task
 @given('the to-do list contains all tasks')
 def step_impl(context):
     # Set the to-do list as an empty list
-    context.task1 = Task("1","pepe","2023-12-12",True)
+    context.task1 = Task("1","pepe","2023-12-12",False)
     context.manager = ToDoListManager()
     context.manager.add_task(context.task1)
 # Step 2: When the user adds a task "Buy groceries"
 @when('the user chooses to view only uncompleted tasks')
 def step_impl(context):
     # Add the task to the to-do list
-    context.manager.list_tasks()
+    context.manager.list_uncompleted_tasks()
 # Step 3: Then the to-do list should contain "Buy groceries"
 @then('the output shows uncompleted tasks')
 def step_impl(context):

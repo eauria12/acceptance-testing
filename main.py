@@ -38,6 +38,10 @@ class ToDoListManager:
             for task in uncompleted_tasks:
                 print(f"[{'X' if task.completed else ' '}] {task.task_id}: {task.description} (Due: {task.due_date})")
 
+    def sort_tasks_by_due_date(self):
+        sorted_tasks = sorted(self.tasks, key=lambda task: task.due_date)
+        self.tasks = sorted_tasks
+
 
 if __name__ == "__main__":
     manager = ToDoListManager()
@@ -50,7 +54,8 @@ if __name__ == "__main__":
         print("4. Clear all tasks")
         print("5. Edit a task")
         print("6. Show only uncompleted tasks")
-        print("7. Exit")
+        print("7. Sort tasks by due date")
+        print("8. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -93,6 +98,11 @@ if __name__ == "__main__":
             manager.list_uncompleted_tasks()
 
         elif choice == "7":
+            manager.sort_tasks_by_due_date()
+            print("Tasks sorted by due date!")
+            manager.list_tasks()
+
+        elif choice == "8":
             print("Exiting the To-Do List Manager.")
             break
 

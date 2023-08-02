@@ -40,5 +40,10 @@ Feature: To Do list management
             | Pay bills     | Completed |
         When the user chooses to view only uncompleted tasks
         Then the output shows uncompleted tasks
+    
+    Scenario: Sort tasks by due date
+        Given the to-do list contains all tasks with various due dates
+        When the user chooses to sort tasks by due date
+        Then the to-do list should show tasks sorted by due date in ascending order
 
 
