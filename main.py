@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
         if choice == "1":
             description = input("Enter task description: ")
-            due_date = input("Enter due date (YYYY-MM-DD): ")
+            due_date = input("Enter finishing date (YYYY-MM-DD): ")
             try:
                 due_date = datetime.strptime(due_date, "%Y-%m-%d")
                 task = Task(len(manager.tasks) + 1, description, due_date)
@@ -75,7 +75,7 @@ if __name__ == "__main__":
             manager.list_tasks()
 
         elif choice == "3":
-            task_id = int(input("Enter the task ID to mark as completed: "))
+            task_id = int(input("Enter completed the task ID : "))
             manager.mark_task_as_completed(task_id)
             print("Task marked as completed!")
 
@@ -86,7 +86,7 @@ if __name__ == "__main__":
         elif choice == "5":
             task_id = int(input("Enter the task ID to edit: "))
             new_description = input("Enter the new description: ")
-            new_due_date = input("Enter the new due date (YYYY-MM-DD): ")
+            new_due_date = input("Enter the new finishing date (YYYY-MM-DD): ")
             try:
                 new_due_date = datetime.strptime(new_due_date, "%Y-%m-%d")
                 manager.edit_task(task_id, new_description, new_due_date)
